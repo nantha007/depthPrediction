@@ -6,7 +6,7 @@ import torch
 import torchlight
 import torch.optim as optim
 import torch.nn as nn
-from net import classifier1
+from net import classifier
 
 
 class ReverseHubberLoss(nn.Module):
@@ -79,7 +79,7 @@ class Processor(object):
         self.io.init_timer("batch_processing_time")
 #
         # model
-        self.model = classifier1.DepthPredictionNet()
+        self.model = classifier.DepthPredictionNet()
         self.model.cuda('cuda:0')
         # TBD: Apart from the Resnet layers, all other layers has to be initialized with the weights as mentioned in the
         # paper, For now we can go ahead and try the default initialization which can be later modified

@@ -1,8 +1,8 @@
 import argparse
 import os
 import numpy as np
-from utils import processor1, loader, loader_test
-from net import classifier1
+from utils import processor, loader, loader_test
+from net import classifier
 import torch.nn as nn
 
 import torch
@@ -20,7 +20,7 @@ def unit_test_loss():
     # print(x)
     # print(target)
 
-    loss_fn = processor1.ReverseHubberLoss()
+    loss_fn = processor.ReverseHubberLoss()
     output = loss_fn.forward(x, target)
     # print(output)
     # print(output.backward())
@@ -40,7 +40,7 @@ def unit_test_model():
     Function to unit test the model
     :return:
     """
-    model = classifier1.DepthPredictionNet()
+    model = classifier.DepthPredictionNet()
     print(model)
     print(x.shape)
     y = model.forward(x)
@@ -176,7 +176,7 @@ else:
         drop_last=False))
     data_loader_train_test = dict(train=data_loader_train_test[0], test=data_loader_train_test[1])
 
-pr = processor1.Processor(args, data_loader_train_test, device=device)
+pr = processor.Processor(args, data_loader_train_test, device=device)
 if args.train:
     pr.train()
 # TBD: Saving the best features to be done later
