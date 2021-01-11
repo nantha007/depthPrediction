@@ -24,7 +24,7 @@ def unit_test_loss():
     # print(x)
     # print(target)
 
-    loss_fn = processor1.ReverseHubberLoss()
+    loss_fn = processor.ReverseHubberLoss()
     output = loss_fn.forward(x, target)
     # print(output)
     # print(output.backward())
@@ -44,7 +44,7 @@ def unit_test_model():
     Function to unit test the model
     :return:
     """
-    model = classifier1.DepthPredictionNet()
+    model = classifier.DepthPredictionNet()
     print(model)
     # x = torch.randn(64, 3, 304, 228)                                                                                                                                                                                                                                                                                                              3, 304, 228, requires_grad=True)
     print(x.shape)
@@ -142,7 +142,7 @@ parser.add_argument('--save-log', action='store_true', default=True,
 args = parser.parse_args()
 device = 'cuda:0'
 
-# pr = processor1.Processor(args, None, device)
+# pr = processor.Processor(args, None, device)
 # data, labels, data_train, labels_train, data_test, labels_test = \
 #     loader.load_data(data_path)
 a = loader.TrainTestLoader(False)
