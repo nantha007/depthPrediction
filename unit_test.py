@@ -2,8 +2,8 @@ import argparse
 import os
 import sys
 import numpy as np
-from utils import processor1, loader
-from net import classifier1
+from utils import processor, loader
+from net import classifier
 import torch.nn as nn
 import torchvision
 from torchvision import transforms

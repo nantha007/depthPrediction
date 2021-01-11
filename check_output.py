@@ -1,8 +1,8 @@
 import os
 import sys
 import numpy as np
-from utils import processor1, loader
-from net import classifier1
+from utils import processor, loader
+from net import classifier
 import torch.nn as nn
 import torchvision
 from torchvision import transforms
@@ -21,7 +21,7 @@ def model_load(path_file, model):
     model.load_state_dict(checkpoint)
     return model
 
-model = classifier1.DepthPredictionNet()
+model = classifier.DepthPredictionNet()
 path_file = 'epoch4_acc1.00_model.pth.tar'
 model = model_load(path_file, model)
 device = 'cuda:0'
